@@ -54,8 +54,28 @@
             </div>
         </div>
         <button class="btn btn-primary" button type="submit">Lisa töö</button>
-            </div>
-        </div>
-    </form>
+       </form>
+
+
+    <table class="table table-condensed">
+        <caption>Tehtud tööd</caption>
+        <thead>
+        <tr class="info">
+            <th>Töö kirjeldus</th>
+            <th>Kulunud aeg</th>
+            <th>Kommentaarid</th>
+            <th>Palk</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
   </html>
