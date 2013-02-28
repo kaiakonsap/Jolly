@@ -9,10 +9,18 @@
 
     <!-- My styles -->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <a class="brand" href="#"><i class="icon-chevron-left"></i>Tagasi</a>
     <h5>kaia Konsap</h5>
+
+
+ 
+
+    <div id="demo" class="collapse out"><p lisamine  noh</p> </div>
+
+
     <div class="pagination pagination-right">
             <button class="btn"><i class="icon-plus-sign"></i>Lisa töö</button>
 
@@ -65,16 +73,22 @@
             <th>Kulunud aeg</th>
             <th>Kommentaarid</th>
             <th>Palk</th>
+            <th></th>
+            <th></th>
         </tr>
 
         </thead>
         <tbody>
+         <?foreach ($tasks as $task): ?>
         <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td><?=$task->name?></td>
+            <td><?=$task->time?></td>
+            <td><?=$task->notes?></td>
+            <td>4palk</td>
+            <td><a href ="<?=URL::base()?>placeholder">Kustuta</a></td>
+            <td><a href ="<?=URL::base()?>placeholder">Muuda</a></td>
         </tr>
+             <? endforeach?>
         </tbody>
     </table>
 </body>
