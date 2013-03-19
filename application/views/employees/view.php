@@ -16,7 +16,7 @@
     <h5>kaia Konsap</h5>
 
 
- 
+
 
     <div id="demo" class="collapse out"><p lisamine  noh</p> </div>
 
@@ -30,35 +30,35 @@
 
 
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" action=<?=URL::base()?>"tasks/create_new" method="post">
         <div class="control-group">
             <label class="control-label" for="input1">Töö tegija</label>
             <div class="controls">
-                <input type="text" id="input1" placeholder="Töö tegija">
+                <input type="text" id="input1" placeholder="Töö tegija" name="username">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input2">Töö tehti</label>
             <div class="controls">
-                <input type="text" id="input2">
+                <input type="text" id="input2"name="time">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input3">Töö kirjeldus</label>
             <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"></textarea>
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="name"></textarea>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input4">Kulunud aeg</label>
             <div class="controls">
-                <input type="hh" id="input4">
+                <input type="hh" id="input4"name="time">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input5">Kommentaarid</label>
             <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"></textarea>
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"name="notes"></textarea>
             </div>
         </div>
         <button class="btn btn-primary" button type="submit">Lisa töö</button>
@@ -82,9 +82,9 @@
          <?foreach ($tasks as $task): ?>
         <tr>
             <td><?=$task->name?></td>
-            <td><?=$task->time?></td>
+            <td><?=$task->getformatedTime($task->time)?></td>
             <td><?=$task->notes?></td>
-            <td>4palk</td>
+            <td><?=$task->salary($task->time)?></td>
             <td><a href ="<?=URL::base()?>placeholder">Kustuta</a></td>
             <td><a href ="<?=URL::base()?>placeholder">Muuda</a></td>
         </tr>

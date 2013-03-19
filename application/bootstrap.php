@@ -19,7 +19,7 @@ if (is_file(APPPATH . 'classes/Kohana' . EXT)) {
  * @link http://kohanaframework.org/guide/using.configuration
  * @link http://www.php.net/manual/timezones
  */
-date_default_timezone_set('America/Chicago');
+date_default_timezone_set('Europe/Tallinn');
 
 /**
  * Set the default locale.
