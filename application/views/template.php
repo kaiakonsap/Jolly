@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <style>body{padding-top:60px};</style>
     <!-- My styles -->
        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
@@ -25,7 +25,7 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <?if(!Auth::instance()->logged_in()){?>
-                    <li><a href="<?=URL::base()?>Login" >Login/a></li>
+                    <li><a href="<?=URL::base()?>login" >Login</a></li>
                         <?} else {?>
                     <li><a href="<?=URL::base()?>login/logout">Logout</a></li>
                     <? } ?>
@@ -38,6 +38,7 @@
 <div class="container">
     <?=Notify::render()?>
     <?=$content?>
+
 
 
 </div> <!-- /container -->

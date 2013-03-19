@@ -13,7 +13,9 @@
 </head>
 <body>
     <a class="brand" href="#"><i class="icon-chevron-left"></i>Tagasi</a>
-    <h5>kaia Konsap</h5>
+    <h5><?=$employee = Model_User::employee($employee->username)?>
+        <?=$month = Model_User::month($month)?>
+        <?=$year = Model_User::year($year)?></h5>
 
 
 

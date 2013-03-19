@@ -130,5 +130,10 @@ class Controller_Login extends Controller_Template
 
         return $user;
     }
-
+    public function action_logout()
+    {
+        Auth::instance()->logout();
+        Notify::success('You have logged out');
+        $this-> redirect('');
+    }
 }
