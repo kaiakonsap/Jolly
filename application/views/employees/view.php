@@ -32,7 +32,7 @@
 
 
 
-    <form class="form-horizontal" action=<?=URL::base()?>"tasks/create_new" method="post">
+    <form class="form-horizontal" action=<?=URL::base()?>"Tasks/create_new" method="post">
         <div class="control-group">
             <label class="control-label" for="input1">Töö tegija</label>
             <div class="controls">

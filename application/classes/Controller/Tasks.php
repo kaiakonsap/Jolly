@@ -5,7 +5,7 @@ class Controller_Tasks extends Controller_Main {
 	{
         $id = $this->request->param('id');
         ORM::factory('Task')->where('id', '=',$id)->find()->delete();
-        $this->redirect("employees");
+        $this->redirect("Dash");
         Notify::msg("Task deleted successfully");
 
     }
@@ -18,8 +18,8 @@ class Controller_Tasks extends Controller_Main {
         $user_id = $this->request->param('user_id');
         $created = $this->request->param('created');
         DB::insert('tasks', array('id', 'name' ,'time' ,'notes' ,'user_id' ,'created'))
-        ->array($id, $name ,$time ,$notes ,$user_id ,$created);
-        $this->redirect("employees");
+        ->values($id, $name ,$time ,$notes ,$user_id ,$created);
+        $this->redirect("Dash");
         Notify::msg("Task saved successfully");
 
     }
