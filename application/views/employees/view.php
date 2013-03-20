@@ -87,8 +87,8 @@
             <td><?=$task->getformatedTime($task->time)?></td>
             <td><?=$task->notes?></td>
             <td><?=$task->salary($task->time)?></td>
-            <td><a href ="<?=URL::base()?>placeholder">Kustuta</a></td>
             <td><a href ="<?=URL::base()?>placeholder">Muuda</a></td>
+            <td><a href ="<?=URL::base()?>tasks/delete/<?=$task->id?>">Kustuta</a></td>
         </tr>
              <? endforeach?>
         </tbody>
