@@ -12,6 +12,7 @@ class Model_User extends Model_Auth_User
     public static function employee($user){
         return $user;
     }
+
 public function rules()
 {
 return [

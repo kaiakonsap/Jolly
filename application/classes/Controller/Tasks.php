@@ -5,25 +5,36 @@ class Controller_Tasks extends Controller_Main {
 	{
         $id = $this->request->param('id');
         ORM::factory('Task')->where('id', '=',$id)->find()->delete();
-        $this->redirect("Dash");
         Notify::msg("Task deleted successfully");
+        $this->redirect("Dash");
+
 
     }
     public function action_create_new()
     {
-        $id = $this->request->param('id');
-        $name = $this->request->param('name');
-        $time = $this->request->param('time');
-        $notes = $this->request->param('notes');
-        $user_id = $this->request->param('user_id');
-        $created = $this->request->param('created');
-        DB::insert('tasks', array('id', 'name' ,'time' ,'notes' ,'user_id' ,'created'))
-        ->values($id, $name ,$time ,$notes ,$user_id ,$created);
-        $this->redirect("Dash");
-        Notify::msg("Task saved successfully");
+
+        $form_data = $this->request->post('task');
+        Notify::success(count($form_data));
+       Model_Task::create_new($form_data);
+
+       $this->redirect("Dash");
+       Notify::msg("Task saved successfully");
 
     }
 
+    public function action_edit()
+    {
+        $id = $this->request->param('id');
+        ORM::factory('Task')->where('id', '=',$id)->find()->update();
+
+
+
+
+
+        $this->redirect("Dash");
+        Notify::msg("Task edited successfully");
+
+    }
 }
 /**
  * Created by JetBrains PhpStorm.

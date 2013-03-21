@@ -32,35 +32,36 @@
 
 
 
-    <form class="form-horizontal" action=<?=URL::base()?>"Tasks/create_new" method="post">
+    <form class="form-horizontal" action=<?=URL::base()?>tasks/create_new method="post">
         <div class="control-group">
             <label class="control-label" for="input1">Töö tegija</label>
             <div class="controls">
-                <input type="text" id="input1" placeholder="Töö tegija" name="username">
+                <input type="text" id="input1" name="task[id]"placeholder="<?$employee?>"
+                       value="<?$employee?>"readOnly>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input2">Töö tehti</label>
             <div class="controls">
-                <input type="text" id="input2"name="time">
+                <input type="text" id="input2">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input3">Töö kirjeldus</label>
             <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="name"></textarea>
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="task[name]"></textarea>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input4">Kulunud aeg</label>
             <div class="controls">
-                <input type="hh" id="input4"name="time">
+                <input type="hh" id="input4"name="task[time]">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input5">Kommentaarid</label>
             <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"name="notes"></textarea>
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"name="task[notes]"></textarea>
             </div>
         </div>
         <button class="btn btn-primary" button type="submit">Lisa töö</button>
@@ -87,7 +88,7 @@
             <td><?=$task->getformatedTime($task->time)?></td>
             <td><?=$task->notes?></td>
             <td><?=$task->salary($task->time)?></td>
-            <td><a href ="<?=URL::base()?>placeholder">Muuda</a></td>
+            <td><a href ="<?=URL::base()?>tasks/edit/<?=$task->id?>">Muuda</a></td>
             <td><a href ="<?=URL::base()?>tasks/delete/<?=$task->id?>">Kustuta</a></td>
         </tr>
              <? endforeach?>

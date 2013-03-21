@@ -2,6 +2,7 @@
 class Model_Task extends ORM
 {
 
+
        public function getformatedtime($time)
        {
            return substr($time,0,5);
@@ -14,5 +15,19 @@ class Model_Task extends ORM
         return $money;
     }
 
+    public static function create_new($form_data)
+    {
 
+        $user = ORM::factory('User')->where("username", "=", $form_data["id"])->find();
+        $tasks = ORM::factory('Task');
+        $tasks->name=$form_data['name'];
+        $tasks->time=$form_data['time'];
+        $tasks->notes=$form_data['notes'];
+        $tasks->user_id=$user->id;
+        $tasks->created=date("Y-m-d H-i-s", time());
+        $tasks->save();
+    }
+    public static function edit($user){
+        return $user;
+    }
 }
