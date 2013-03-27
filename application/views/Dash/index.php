@@ -2,7 +2,7 @@
     <caption>Kokkuvöte, </caption>
     <thead>
     <tr class="info">
-        <th>Töö nimi</th>
+        <th>Töötaja</th>
         <th>jaanuar</th>
         <th>veebruar</th>
         <th>kokku</th>
@@ -13,14 +13,18 @@
 
     </thead>
     <tbody>
-    <??>
-    <tr>
-        <td><??></td>
-        <td><??></td>
-        <td><??></td>
-        <td><??></td>
 
+    <?foreach ($summary as $summi): ?>
+    <tr>
+        <?var_dump($summi['created'])?>
+        <td><?=$summi['username']?></td>
+        <td><?=$summi['totaltime']?></td>
+
+        <td><?=$summi['totaltime']?></td>
+        <td><?=Model_Employee::salary($summi['totaltime'])?></td>
     </tr>
-        <? ?>
+
+        <? endforeach?>
+
     </tbody>
 </table>

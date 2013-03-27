@@ -6,8 +6,10 @@ class Controller_Dash extends Controller_Main {
 	{
         $this->template->content = View::factory('Dash/index');
         $year = $this->request->query("year");
-        $this->template->content->tasks_summary;
+        $this->template->content->year=$year;
+        $this->template->content->summary = Model_Employee::tasks_summary($year);
+
     }
-        }
+
 
 } // End Welcome
