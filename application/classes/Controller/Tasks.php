@@ -1,6 +1,8 @@
 <?php  defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Tasks extends Controller_Main {
+
+
     public function action_delete()
 	{
         $id = $this->request->param('id');
@@ -13,7 +15,7 @@ class Controller_Tasks extends Controller_Main {
     public function action_create_new()
     {
 
-        $form_data = $this->request->post('task');
+        $form_data = $this->request->post('tasks');
         Notify::success(count($form_data));
        Model_Task::create_new($form_data);
 
@@ -24,17 +26,18 @@ class Controller_Tasks extends Controller_Main {
 
     public function action_edit()
     {
-        $id = $this->request->param('id');
-        ORM::factory('Task')->where('id', '=',$id)->find()->update();
-
-
-
-
-
-        $this->redirect("Dash");
-        Notify::msg("Task edited successfully");
-
+        $this->template->content = View::factory('tasks/view');
+        $this->template->content->tasks_edit = ORM::factory('Task')->where('id', '=', $this->request->param('id'))->find();
     }
+    public function action_update()
+    {
+        $form_data = $this->request->post('task');
+        Notify::msg($form_data["id"]);
+        Model_Task::update_me($form_data);
+          $this->redirect("Dash");
+
+     }
+
 }
 /**
  * Created by JetBrains PhpStorm.

@@ -36,14 +36,15 @@
         <div class="control-group">
             <label class="control-label" for="input1">Töö tegija</label>
             <div class="controls">
-                <input type="text" id="input1" name="task[id]"placeholder="<?$employee?>"
-                       value="<?$employee?>"readOnly>
+                <input type="text" id="input1" name="task[id]"placeholder="<?=$employee?>"
+                       value="<?=$employee?>"readonly>
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="input2">Töö tehti</label>
             <div class="controls">
-                <input type="text" id="input2">
+                <input type="text" id="input2" name="task[created]"placeholder="<?=$month?>"
+                       value="<?=$month?>"readonly>
             </div>
         </div>
         <div class="control-group">

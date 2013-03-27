@@ -18,16 +18,26 @@ class Model_Task extends ORM
     public static function create_new($form_data)
     {
 
-        $user = ORM::factory('User')->where("username", "=", $form_data["id"])->find();
+       // $user = ORM::factory('User')->where("username", "=", $form_data["id"])->find();
         $tasks = ORM::factory('Task');
         $tasks->name=$form_data['name'];
         $tasks->time=$form_data['time'];
         $tasks->notes=$form_data['notes'];
-        $tasks->user_id=$user->id;
+        $tasks->user_id='2';
+        //$tasks->user_id=$user->id;
         $tasks->created=date("Y-m-d H-i-s", time());
         $tasks->save();
     }
-    public static function edit($user){
-        return $user;
+    public static function update_me($formdata){
+
+
+        $tasks = ORM::factory('Task',$formdata['task_id']);
+       $tasks->name=$formdata['name'];
+        $tasks->time=$formdata['time'];
+       $tasks->notes=$formdata['notes'];
+        $tasks->user_id=$formdata['id'];
+        $tasks->created=$formdata['created'];
+        $tasks->save();
+
     }
 }
