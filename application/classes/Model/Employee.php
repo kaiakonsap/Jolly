@@ -9,22 +9,14 @@ class Model_Employee extends ORM
             $sum2=DB::select(array('users.username',"username"),array(DB::expr("MONTH(tasks.created)"),"created"), array(DB::expr('SEC_TO_TIME(SUM(TIME_TO_SEC(time)  ) )'),'totaltime'))
                 ->from('tasks')
                 ->join('users')->on('users.id','=','tasks.user_id')
-            ->group_by("users.id",DB::expr("MONTH('tasks.created')"))
+            ->group_by("users.id")
                 //->where(DB::expr("YEAR('tasks.created')"),"=",$year)
                 ->execute();
-                $summary_array=Model_Employee::unite_rows($sum2);
-            return $summary_array;
+
+            return $sum2;
 
         }
-    public static function unite_rows($my_array)
-    {
-        $united_array=array();
-        foreach ($my_array as $member):
-            $united_array[  $member['username']  ][]=$member;
 
-            endforeach;
-        return $united_array;
-    }
     public static function salary($totaltime)
     {
         $money=18;
@@ -33,6 +25,19 @@ class Model_Employee extends ORM
 
             return $sum_money;
     }
+    public static function employee($form_data)
+    {
+
+        $person = ORM::factory('User');
+        $person->username=$form_data['username'];
+        $person->email=$form_data['email'];
+        $person->google_id='Null';
+        $person->logins='0';
+        $person->last_login='0';
+        $person->save();
+    }
+
+
 
 }
 

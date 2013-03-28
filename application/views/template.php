@@ -37,7 +37,9 @@
 
 <div class="container">
     <?=Notify::render()?>
+
     <?=$content?>
+
 
 
 

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <table class="table table-condensed">
     <caption>Kokkuvöte, </caption>
     <thead>
@@ -16,7 +18,7 @@
 
     <?foreach ($summary as $sum_me): ?>
     <tr>
-        <td><?=Model_Employee::tasks_summary($sum_me['username']) ?></td>
+        <td><?=($sum_me['username']) ?></td>
         <td><?=$sum_me['totaltime']?></td>
 
         <td><?=$sum_me['totaltime']?></td>
@@ -27,3 +29,18 @@
 
     </tbody>
 </table>
+<form class="form-horizontal" action=<?=URL::base()?>dash/employee method="post">
+    <div class="control-group">
+        <label class="control-label" for="input1">Nimi</label>
+        <div class="controls">
+            <input type="text" id="input1" name="person[username]">
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input1">e-mail</label>
+            <div class="controls">
+                <input type="text" id="input2" name="person[email]">
+            </div>
+        <button class="btn btn-primary" button type="submit">Lisa</button>
+
+            </div>
+</form>

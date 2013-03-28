@@ -12,7 +12,7 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <a class="brand" href="#"><i class="icon-chevron-left"></i>Tagasi</a>
+    <a class="brand" href="../../dash?year=<?=date("Y")?>"><i class="icon-chevron-left"></i>Tagasi</a>
     <h5><?=$employee = Model_User::employee($employee->username)?>
         <?=$month = Model_User::month($month)?>
         <?=$year = Model_User::year($year)?></h5>
