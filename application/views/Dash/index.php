@@ -14,14 +14,13 @@
     </thead>
     <tbody>
 
-    <?foreach ($summary as $summi): ?>
+    <?foreach ($summary as $sum_me): ?>
     <tr>
-        <?var_dump($summi['created'])?>
-        <td><?=$summi['username']?></td>
-        <td><?=$summi['totaltime']?></td>
+        <td><?=Model_Employee::tasks_summary($sum_me['username']) ?></td>
+        <td><?=$sum_me['totaltime']?></td>
 
-        <td><?=$summi['totaltime']?></td>
-        <td><?=Model_Employee::salary($summi['totaltime'])?></td>
+        <td><?=$sum_me['totaltime']?></td>
+        <td><?=Model_Employee::salary($sum_me['totaltime'])?></td>
     </tr>
 
         <? endforeach?>

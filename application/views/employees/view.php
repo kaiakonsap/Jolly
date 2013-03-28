@@ -44,7 +44,7 @@
             <label class="control-label" for="input2">Töö tehti</label>
             <div class="controls">
                 <input type="text" id="input2" name="task[created]"placeholder="<?=$month?>"
-                       value="<?=$month?>"readonly>
+                       value="<?=$mydate?>"readonly>
             </div>
         </div>
         <div class="control-group">
@@ -94,6 +94,15 @@
         </tr>
              <? endforeach?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>&sum; <?=Model_Task::get_total_hours($tasks)?></th>
+                <th></th>
+                <th>&sum; <?=Model_Task::get_total_pay($tasks)?></th>
+                <th></th>
+             </tr>
+        </tfoot>
     </table>
 </body>
   </html>

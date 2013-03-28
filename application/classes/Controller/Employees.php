@@ -12,6 +12,8 @@ class Controller_Employees extends Controller_Main {
         $year = $this->request->query('year');
         $this->template->content->year = $year;
         $this->template->content->tasks = ORM::factory('Task')->where('user_id', '=', $this->request->param('id'))->and_where(DB::expr('MONTH(created)'), '=', $month)->and_where(DB::expr('YEAR(created)'), '=', $year)->find_all();
-	}
+	    $mydate=date("d,m,Y",time());
+        $this->template->content->mydate=$mydate;
+    }
 
 } // End Welcome

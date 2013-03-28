@@ -12,10 +12,19 @@ class Model_Employee extends ORM
             ->group_by("users.id",DB::expr("MONTH('tasks.created')"))
                 //->where(DB::expr("YEAR('tasks.created')"),"=",$year)
                 ->execute();
-
-            return $sum2;
+                $summary_array=Model_Employee::unite_rows($sum2);
+            return $summary_array;
 
         }
+    public static function unite_rows($my_array)
+    {
+        $united_array=array();
+        foreach ($my_array as $member):
+            $united_array[  $member['username']  ][]=$member;
+
+            endforeach;
+        return $united_array;
+    }
     public static function salary($totaltime)
     {
         $money=18;

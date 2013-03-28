@@ -11,8 +11,33 @@ class Model_Task extends ORM
     public function salary($time)
     {
         $rate=0.2;
-        $money=substr($time,0,5)*60*$rate+substr($time,0,2)*$rate.' E';
+        $money=substr($time,0,5)*60*$rate+substr($time,0,2)*$rate.'  €';
         return $money;
+    }
+    public static function get_total_hours( $tasks)
+    {
+        $timesum=0;
+        foreach ($tasks as $time):
+
+            $mytime=$time->time;//take the time out of task
+        $conv=(int)substr($mytime,-7,2)*60;
+        $timesum+=$conv;
+            endforeach;
+
+        return $timesum;
+    }
+
+    public static function get_total_pay( $tasks)
+    {
+        $timesum=0;
+        foreach ($tasks as $time):
+
+            $mytime=$time->time;//take the time out of task
+            $conv=(int)substr($mytime,-7,2)*60;
+            $timesum+=$conv;
+        endforeach;
+
+        return $timesum*0.2.' €';
     }
 
     public static function create_new($form_data)
