@@ -96,7 +96,7 @@ class Controller_Login extends Controller_Template
             }
         }
 
-        $this->redirect('');
+        $this->redirect('dash?year='.date("Y"));
     }
 
     /**
@@ -134,6 +134,6 @@ class Controller_Login extends Controller_Template
     {
         Auth::instance()->logout();
         Notify::success('You have logged out');
-        $this-> redirect('');
+        $this-> redirect('dash');
     }
 }
