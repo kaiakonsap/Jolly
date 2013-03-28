@@ -18,57 +18,6 @@
         <?=$year = Model_User::year($year)?></h5>
 
 
-
-
-    <div id="demo" class="collapse out"><p lisamine  noh</p> </div>
-
-
-    <div class="pagination pagination-right">
-            <button class="btn"><i class="icon-plus-sign"></i>Lisa töö</button>
-
-    </div>
-
-    <p>Töö lisamine</p>
-
-
-
-    <form class="form-horizontal" action=<?=URL::base()?>tasks/create_new method="post">
-        <div class="control-group">
-            <label class="control-label" for="input1">Töö tegija</label>
-            <div class="controls">
-                <input type="text" id="input1" name="task[id]"placeholder="<?=$employee?>"
-                       value="<?=$employee?>"readonly>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="input2">Töö tehti</label>
-            <div class="controls">
-                <input type="text" id="input2" name="task[created]"placeholder="<?=$month?>"
-                       value="<?=$mydate?>"readonly>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="input3">Töö kirjeldus</label>
-            <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="task[name]"></textarea>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="input4">Kulunud aeg</label>
-            <div class="controls">
-                <input type="hh" id="input4"name="task[time]">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="input5">Kommentaarid</label>
-            <div class="controls">
-                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"name="task[notes]"></textarea>
-            </div>
-        </div>
-        <button class="btn btn-primary" button type="submit">Lisa töö</button>
-       </form>
-
-
     <table class="table table-condensed">
         <caption>Tehtud tööd</caption>
         <thead>
@@ -104,5 +53,50 @@
              </tr>
         </tfoot>
     </table>
+    <div id="demo" class="collapse out"><p lisamine  noh</p> </div>
+
+
+    <div class="pagination pagination-right">
+        <button class="btn"><i class="icon-plus-sign"></i>Lisa töö</button>
+
+    </div>
+
+    <p>Töö lisamine</p>
+
+    <form class="form-horizontal" action=<?=URL::base()?>tasks/create_new method="post">
+        <div class="control-group">
+            <label class="control-label" for="input1">Töö tegija</label>
+            <div class="controls">
+                <input type="text" id="input1" name="task[id]"placeholder="<?=$employee?>"
+                       value="<?=$employee?>"readonly>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input2">Töö tehti</label>
+            <div class="controls">
+                <input type="text" id="input2" name="task[created]"placeholder="<?=$month?>"
+                       value="<?=$mydate?>"readonly>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input3">Töö kirjeldus</label>
+            <div class="controls">
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="task[name]"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input4">Kulunud aeg</label>
+            <div class="controls">
+                <input type="hh" id="input4"name="task[time]">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="input5">Kommentaarid</label>
+            <div class="controls">
+                <textarea input class="input-xlarge" rows="3" cols="3" id="input5"name="task[notes]"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary" button type="submit">Lisa töö</button>
+    </form>
 </body>
   </html>

@@ -23,7 +23,7 @@
                 <?foreach ($sum as $sum_me): ?>
 
                           <td><?=Model_User::month($sum_me['created'])?></td>
-                          <td>  <a href="<?=URL::base()?>employees/view/<?Model_Employee::name_id($sum_me['username'])?>?month=<?=$sum_me['created']?>&year=<?=$year?> "><?=Model_Employee::timesum($sum_me['totaltime'])?></a>
+                          <td>  <a href="<?=URL::base()?>employees/view/<?=Model_Employee::name_id($sum_me['username'])?>?month=<?=$sum_me['created']?>&year=<?=$year?> "><?=Model_Employee::timesum($sum_me['totaltime'])?></a>
                           </td>
 
                           <td><?=Model_Employee::salary($sum_me['totaltime'])?></td>
