@@ -8,18 +8,17 @@ class Controller_Tasks extends Controller_Main {
         $id = $this->request->param('id');
         ORM::factory('Task')->where('id', '=',$id)->find()->delete();
         Notify::msg("Task deleted successfully");
-        $this->redirect("Dash");
+        $this->redirect('Dash?year='.date("Y"));
 
 
     }
     public function action_create_new()
     {
 
-        $form_data = $this->request->post('tasks');
+        $form_data = $this->request->post('task');
         Notify::success(count($form_data));
        Model_Task::create_new($form_data);
-
-       $this->redirect("Dash");
+       $this->redirect('Dash?year='.date("Y"));
        Notify::msg("Task saved successfully");
 
     }
@@ -34,7 +33,7 @@ class Controller_Tasks extends Controller_Main {
         $form_data = $this->request->post('task');
         Notify::msg($form_data["id"]);
         Model_Task::update_me($form_data);
-          $this->redirect("Dash");
+        $this->redirect('Dash?year='.date("Y"));
 
      }
 

@@ -13,7 +13,7 @@ class Controller_Dash extends Controller_Main {
     {
         $form_data = $this->request->post('person');
         Model_Employee::employee($form_data);
-        $this->redirect("Dash");
+        $this->redirect('Dash?year='.date("Y"));
         Notify::msg("Person saved successfully");
     }
 } // End Welcome

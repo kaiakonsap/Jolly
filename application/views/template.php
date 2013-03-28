@@ -21,11 +21,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Project name</a>
+            <a class="brand" href="#">Jolly</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <?if(!Auth::instance()->logged_in()){?>
-                    <li><a href="<?=URL::base()?>login" >Login</a></li>
+                    <li><a href="<?=URL::base()?>login">Login</a></li>
                         <?} else {?>
                     <li><a href="<?=URL::base()?>login/logout">Logout</a></li>
                     <? } ?>
