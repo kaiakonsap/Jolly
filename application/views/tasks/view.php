@@ -2,7 +2,7 @@
 
 
 
-<form class="form-horizontal" action=<?=URL::base()?>tasks/update method="post">
+<form  action=<?=URL::base()?>tasks/update method="post">
     <div class="control-group">
         <label class="control-label" for="input1">Töö tegija</label>
         <div class="controls">

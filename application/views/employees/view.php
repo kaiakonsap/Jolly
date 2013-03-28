@@ -61,7 +61,7 @@
 
     </div>
 
-    <p>Töö lisamine</p>
+    <legend>Töö lisamine</legend>
 
     <form class="form-horizontal" action=<?=URL::base()?>tasks/create_new method="post">
         <div class="control-group">
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="input3">Töö kirjeldus</label>
+            <label class="control-label" for="input3">Kirjelda arusaadavalt</label>
             <div class="controls">
                 <textarea input class="input-xlarge" rows="3" cols="3" id="input3"name="task[name]"></textarea>
             </div>
@@ -87,7 +87,7 @@
         <div class="control-group">
             <label class="control-label" for="input4">Kulunud aeg</label>
             <div class="controls">
-                <input type="hh" id="input4"name="task[time]">
+                <input type="hh" id="input4"name="task[time]"placeholder="hh:mm">
             </div>
         </div>
         <div class="control-group">
