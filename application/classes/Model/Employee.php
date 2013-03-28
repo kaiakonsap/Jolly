@@ -9,13 +9,31 @@ class Model_Employee extends ORM
             $sum2=DB::select(array('users.username',"username"),array(DB::expr("MONTH(tasks.created)"),"created"), array(DB::expr('SEC_TO_TIME(SUM(TIME_TO_SEC(time)  ) )'),'totaltime'))
                 ->from('tasks')
                 ->join('users')->on('users.id','=','tasks.user_id')
-            ->group_by("users.id")
-                //->where(DB::expr("YEAR('tasks.created')"),"=",$year)
+            ->where(db::expr('YEAR(tasks.created)'),'=',$year )
+            ->group_by("users.id",DB::expr('MONTH(tasks.created)' ))
                 ->execute();
-
-            return $sum2;
+            $my_summary=$sum2->as_array();
+            $my_summary=Model_Employee::format_array($my_summary);
+            return $my_summary;
 
         }
+    public static function format_array($my_summary)
+    {
+        $formatted_array=array();
+        foreach ($my_summary as $my_element):
+
+            $formatted_array[$my_element['username']] []=$my_element;
+
+
+
+        endforeach;
+            return $formatted_array;
+    }
+    public static function name_id($username)
+    {
+        $username=ORM::factory('User')->where('username','=',$username)->find();
+        return $username->id;
+    }
 
     public static function salary($totaltime)
     {
@@ -25,6 +43,14 @@ class Model_Employee extends ORM
 
             return $sum_money;
     }
+
+    public static function timesum($totaltime)
+    {
+
+
+        return ((int)substr($totaltime,0,2));
+    }
+
     public static function employee($form_data)
     {
 

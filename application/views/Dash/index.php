@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
 <table class="table table-condensed">
-    <caption>Kokkuvöte, </caption>
+    <caption>Kokkuvöte,<?=$year = Model_User::year($year)?></caption>
     <thead>
     <tr class="info">
         <th>Töötaja</th>
-        <th>jaanuar</th>
-        <th>veebruar</th>
-        <th>kokku</th>
+
+        <th>Kuu</th>
+        <th>Aeg kokku</th>
         <th>Palk</th>
         <th></th>
         <th></th>
@@ -15,18 +15,22 @@
 
     </thead>
     <tbody>
+    <?foreach ($summary as $sum): ?>
+          <tr>
+                <td rowspan="<?=count($sum)?> "><?=$sum[0]['username'] ?></td>
 
-    <?foreach ($summary as $sum_me): ?>
-    <tr>
-        <td><?=($sum_me['username']) ?></td>
-        <td><?=$sum_me['totaltime']?></td>
 
-        <td><?=$sum_me['totaltime']?></td>
-        <td><?=Model_Employee::salary($sum_me['totaltime'])?></td>
-    </tr>
+                <?foreach ($sum as $sum_me): ?>
+
+                          <td><?=Model_User::month($sum_me['created'])?></td>
+                          <td>  <a href="<?=URL::base()?>employees/view/<?Model_Employee::name_id($sum_me['username'])?>?month=<?=$sum_me['created']?>&year=<?=$year?> "><?=Model_Employee::timesum($sum_me['totaltime'])?></a>
+                          </td>
+
+                          <td><?=Model_Employee::salary($sum_me['totaltime'])?></td>
+        </tr>
 
         <? endforeach?>
-
+        <? endforeach?>
     </tbody>
 </table>
 <form class="form-horizontal" action=<?=URL::base()?>dash/employee method="post">
